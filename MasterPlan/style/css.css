@@ -1,0 +1,150 @@
+html {
+    overflow-x: hidden;
+    font-family: Helvetica;
+    box-sizing: border-box;
+    height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+header {
+    background: #8f2828;
+    width: 65%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    z-index: 100;
+}
+.carruseles {
+    margin: 0;
+    height: 100%;
+    width: 100vw;
+    scroll-snap-type: y mandatory;
+}
+.carrusel-item {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 0%;
+    object-fit: cover;
+}
+.carrusel-contenido {
+    width: 75%;
+    position: relative;
+    overflow: hidden;
+}
+.carrusel-imagenes {
+    width: 100%;
+    display: flex;
+    touch-action: pan-y;
+}
+.carrusel-imagenes .img {
+    width: 100%;
+    padding: 0;
+    position: relative;
+    flex-shrink: 0;
+    height: auto;
+}
+.puntos {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    gap: 1.5%;
+}
+.punto {
+    width: 1em;
+    height: 1em;
+    background: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.punto.activo {
+    background: rgb(143, 40, 40);
+    border-radius: 0%;
+}
+.reacts {
+    padding: 5%;
+    font-size: 1em;
+    text-align: center;
+    margin: 0%;
+}
+p {
+    text-align: center;
+    margin: 0%;
+    padding: 5%;
+    width: 90%;
+}
+.flecha,
+.anterior,
+.siguiente {
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+    background: none;
+    padding: 0%;
+    margin: 0%;
+    color: #8f2828;
+}
+.flecha:disabled {
+    color: #999999;
+    cursor: not-allowed;
+}
+.botones {
+    position: absolute;
+    z-index: 100;
+    height: 1em;
+    justify-content: center;
+}
+footer {
+    background: #8f2828;
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+@media screen and (min-width: 768px) {
+    .carrusel-item {
+        height: 90vh;
+    }
+    .carrusel-contenido {
+        width: 90%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .carrusel-imagenes {
+        width: 35%;
+        flex-shrink: 0;
+    }
+    .carrusel-imagenes .img {
+        width: 100%;
+    }
+    .carrusel-sidebar {
+        width: 65%;
+        height: 100%;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgb(255, 255, 255);
+    }
+}
