@@ -7,16 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const reactsDiv = carrusel.querySelector('.reacts');
         const infoDiv = carrusel.querySelector('.info');
         const numImagenes = carruselImagenes.querySelectorAll('.img').length;
-        
-        // Variables de Control
         let indiceActual = 0;
         let inicioX = 0; 
         let desplazamientoX = 0;
         let arrastrando = false; 
         const umbralSwipe = 50; 
         let animacionFrameId = null; 
-        
-        // 🆕 FUNCIÓN NUEVA: Actualiza solo el contenido (puntos y data-attributes)
+
         function actualizarContenido() {
             puntos.forEach((punto, index) => {
                 punto.classList.toggle('activo', index === indiceActual);
@@ -55,13 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
         carruselImagenes.addEventListener('touchstart', (e) => {
             inicioX = e.touches[0].clientX;
             arrastrando = true;
-            // 🆕 Iniciamos la animación con rAF si no está corriendo
             if (!animacionFrameId) {
                 animacionFrameId = requestAnimationFrame(animarArrastre);
             }
         });
         carruselImagenes.addEventListener('touchmove', (e) => {
             if (!arrastrando) return;
+            e.preventDefault();
             const movimientoX = e.touches[0].clientX;
             desplazamientoX = movimientoX - inicioX; 
         });
