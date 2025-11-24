@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         carruselImagenes.addEventListener('touchmove', (e) => {
             if (!arrastrando) return;
-            e.preventDefault();
             const movimientoX = e.touches[0].clientX;
             desplazamientoX = movimientoX - inicioX; 
         });
