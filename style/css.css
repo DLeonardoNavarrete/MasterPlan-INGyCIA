@@ -3,6 +3,7 @@
 }
 html {
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
     font-family: Helvetica;
     box-sizing: border-box;
     height: 100%;    
