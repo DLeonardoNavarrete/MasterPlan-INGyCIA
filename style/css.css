@@ -53,7 +53,7 @@ header h1 {
 .carrusel-contenido {
     width: 75%;
     position: relative;
-    overflow-x: scroll;
+    overflow-x: hidden;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     background-color: white;
@@ -62,7 +62,7 @@ header h1 {
 .carrusel-imagenes {
     width: 100%;
     display: flex;
-    touch-action: pan-y;
+    touch-action: auto;
     cursor: grab;
 }
 .carrusel-imagenes:active {
