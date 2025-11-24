@@ -53,10 +53,11 @@ header h1 {
 .carrusel-contenido {
     width: 75%;
     position: relative;
-    overflow: hidden;
+    overflow-x: scroll;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     background-color: white;
+    -webkit-overflow-scrolling: touch;
 }
 .carrusel-imagenes {
     width: 100%;
