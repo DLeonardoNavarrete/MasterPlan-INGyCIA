@@ -1,24 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
     const carruselItems = document.querySelectorAll('.carrusel-item');
+    
     carruselItems.forEach(carrusel => {
         const carruselImagenes = carrusel.querySelector('.carrusel-imagenes');
         const puntos = carrusel.querySelectorAll('.punto');
         const reactsDiv = carrusel.querySelector('.reacts');
         const infoDiv = carrusel.querySelector('.info');
         const numImagenes = carruselImagenes.querySelectorAll('.img').length;
+        
+        // Variables de Control
         let indiceActual = 0;
         let inicioX = 0; 
         let desplazamientoX = 0;
         let arrastrando = false; 
         const umbralSwipe = 50; 
-        function actualizarCarrusel(transicion = true) {
-            const desplazamiento = -indiceActual * 100;
-            if (transicion) {
-                carruselImagenes.style.transition = 'transform 0.25s ease-in-out';
-            } else {
-                carruselImagenes.style.transition = 'none';
-            }
-            carruselImagenes.style.transform = `translateX(${desplazamiento}%)`;
+        let animacionFrameId = null; 
+        
+        // 🆕 FUNCIÓN NUEVA: Actualiza solo el contenido (puntos y data-attributes)
+        function actualizarContenido() {
             puntos.forEach((punto, index) => {
                 punto.classList.toggle('activo', index === indiceActual);
             });
@@ -31,38 +30,62 @@ document.addEventListener('DOMContentLoaded', () => {
                 infoDiv.innerHTML = `<p>${nuevoInfo || 'Sin información adicional.'}</p>`; 
             }
         }
+        function moverAIndice(nuevoIndice, conTransicion = true) {
+            indiceActual = nuevoIndice;
+            const desplazamiento = -indiceActual * 100;
+            carruselImagenes.style.transition = conTransicion ? 'transform 0.25s ease-in-out' : 'none';
+            carruselImagenes.style.transform = `translateX(${desplazamiento}%)`;
+            
+            actualizarContenido();
+        }
+
+        function animarArrastre() {
+            if (!arrastrando) {
+                animacionFrameId = null;
+                return;
+            }
+            carruselImagenes.style.transition = 'none';
+            const ancho = carruselImagenes.offsetWidth;
+            const posicionInicialPorcentaje = -indiceActual * 100;
+            const desplazamientoPorcentaje = (desplazamientoX / ancho) * 100;
+            carruselImagenes.style.transform = `translateX(${posicionInicialPorcentaje + desplazamientoPorcentaje}%)`;
+            animacionFrameId = requestAnimationFrame(animarArrastre);
+        }
+
         carruselImagenes.addEventListener('touchstart', (e) => {
             inicioX = e.touches[0].clientX;
             arrastrando = true;
-            carruselImagenes.style.transition = 'none'; 
+            // 🆕 Iniciamos la animación con rAF si no está corriendo
+            if (!animacionFrameId) {
+                animacionFrameId = requestAnimationFrame(animarArrastre);
+            }
         });
         carruselImagenes.addEventListener('touchmove', (e) => {
             if (!arrastrando) return;
             const movimientoX = e.touches[0].clientX;
             desplazamientoX = movimientoX - inicioX; 
-            const posicionActual = -indiceActual * 100;
-            const desplazamientoPorcentaje = (desplazamientoX / carruselImagenes.offsetWidth) * 100;
-            carruselImagenes.style.transform = `translateX(${posicionActual + desplazamientoPorcentaje}%)`;
         });
         carruselImagenes.addEventListener('touchend', () => {
             if (!arrastrando) return;
+            cancelAnimationFrame(animacionFrameId);
+            animacionFrameId = null;
             arrastrando = false;
+
+            let nuevoIndice = indiceActual;
             if (desplazamientoX < -umbralSwipe) { 
-                indiceActual = Math.min(indiceActual + 1, numImagenes - 1); 
+                nuevoIndice = Math.min(indiceActual + 1, numImagenes - 1); 
             } else if (desplazamientoX > umbralSwipe) { 
-                indiceActual = Math.max(indiceActual - 1, 0); 
+                nuevoIndice = Math.max(indiceActual - 1, 0); 
             }
             desplazamientoX = 0;
-            actualizarCarrusel(); 
+            moverAIndice(nuevoIndice); 
         });
         puntos.forEach(punto => {
             punto.addEventListener('click', () => {
                 const index = parseInt(punto.dataset.index);
-                indiceActual = index;
-                actualizarCarrusel();
+                moverAIndice(index); 
             });
         });
-
-        actualizarCarrusel();
+        moverAIndice(indiceActual, false);
     });
 });
