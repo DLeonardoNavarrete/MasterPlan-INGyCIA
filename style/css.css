@@ -3,7 +3,6 @@
 }
 html {
     overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
     font-family: Helvetica;
     box-sizing: border-box;
     height: 100%;    
@@ -36,7 +35,8 @@ header h1 {
     margin: 0;
     height: 100%;
     width: 100vw;
-    overflow-y: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .carrusel-item {
