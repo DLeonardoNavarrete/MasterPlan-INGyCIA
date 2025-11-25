@@ -32,8 +32,8 @@ header h1 {
 }
 
 .carruseles {
-    margin: 0;
-    height: 100%;
+    margin: auto 0;
+    height: 95%;
     width: 100vw;
 }
 
