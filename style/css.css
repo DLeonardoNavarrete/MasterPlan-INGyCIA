@@ -86,6 +86,12 @@ header h1 {
     flex-shrink: 0;
     display: block;
 }
+.carrusel-imagenes a{
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    display: block;
+}
 
 .puntos {
     list-style: none;
