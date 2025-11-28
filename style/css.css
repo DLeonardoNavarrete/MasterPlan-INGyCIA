@@ -80,6 +80,9 @@ header h1 {
     cursor: grabbing;
 }
 
+.img{
+    width: 100%;
+}
 .carrusel-imagenes .img {
     width: 100%;
     height: auto;
@@ -91,6 +94,7 @@ header h1 {
     height: auto;
     flex-shrink: 0;
     display: block;
+    align-items: center;
 }
 .carrusel-sidebar {
     width: 100%;
@@ -179,6 +183,7 @@ footer {
         width: 35%;
         flex-shrink: 0;
         height: 100%;
+        align-items: center;
     }
     .carrusel-sidebar {
         width: 66%;
@@ -198,5 +203,6 @@ footer {
         padding: 0;
         gap: 1.5rem;
         width: 75%;
+        margin-left: auto;
     }
 }
