@@ -174,19 +174,14 @@ footer {
         justify-content: center;
         align-items: center;
         overflow: hidden;
-        margin: auto 0;
     }
     .carrusel-imagenes {
         width: 35%;
         flex-shrink: 0;
-        margin: auto 0;
-    }
-    .hiper {
-        width: 100%;
-        height: 50%;
+        height: 100%;
     }
     .carrusel-sidebar {
-        width: 65%;
+        width: 66%;
         height: 100%;
         z-index: 10;
         display: flex;
@@ -195,9 +190,13 @@ footer {
         align-items: center;
         background: rgb(255, 255, 255);
     }
+    .hiper.img{
+        width: 100%;
+    }
     .reacts, .info, p{
         font-size: 1.2em;
         padding: 0;
         gap: 1.5rem;
+        width: 75%;
     }
 }
