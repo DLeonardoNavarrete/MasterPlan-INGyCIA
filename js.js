@@ -1,6 +1,3 @@
-let dobleback = false;
-const tiempoEspera = 1500;
-
 document.addEventListener('DOMContentLoaded', () => {
     const carruselItems = document.querySelectorAll('.carrusel-item');
     
@@ -87,18 +84,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         moverAIndice(indiceActual, false);
     });
-
-    
-    window.history.pushState({salida:true}, null, window.location.pathname);
-    window.addEventListener('popstate', (e) => {
-        if(dobleback){
-            return;
-        }
-        dobleback = true;
-        alert("Presiona de nuevo y te vas pa la calle.");
-        window.history.pushState({salida:true}, null, window.location.pathname);
-        setTimeout(() => {
-            dobleback = false;
-        }, tiempoEspera);
-    })
 });
