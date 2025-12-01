@@ -75,6 +75,7 @@ header h1 {
     display: flex;
     touch-action: auto;
     cursor: grab;
+    align-items: center;
 }
 
 .carrusel-imagenes:active {
