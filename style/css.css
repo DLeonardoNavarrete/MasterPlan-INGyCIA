@@ -191,8 +191,7 @@ footer {
     .hiper.img {
         width: 100%;
     }
-    .reacts,
-    .info {
+    .reacts, .info {
         font-size: 1.2em;
         padding: 0;
         gap: 1.5rem;
