@@ -192,8 +192,7 @@ footer {
         width: 100%;
     }
     .reacts,
-    .info,
-    p {
+    .info {
         font-size: 1.2em;
         padding: 0;
         gap: 1.5rem;
