@@ -1,8 +1,7 @@
-html {
+* {
     overflow-x: hidden;
     font-family: Helvetica;
     box-sizing: border-box;
-    height: 100%;
 }
 body {
     margin: 0;
@@ -20,6 +19,7 @@ header {
     align-items: center;
     z-index: 11;
     position: sticky;
+    top: 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 header h1 {
