@@ -1,6 +1,3 @@
-* {
-    box-sizing: border-box;
-}
 html {
     overflow-x: hidden;
     font-family: Helvetica;
@@ -46,7 +43,6 @@ header h1 {
     min-height: 100vh;
     margin: 0;
     scroll-snap-align: start;
-    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
