@@ -14,11 +14,11 @@ body {
 }
 header {
     background: #8f2828;
-    width: 100%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10% auto 0 auto;
+    margin: 5% auto 0 auto;
     z-index: 11;
     position: sticky;
     top: 0;
