@@ -14,11 +14,14 @@ body {
 }
 header {
     background: #8f2828;
-    width: 40%;
+    width: 70%;
+    height: 4vh;
+    margin: 2% auto;
+    padding: 0.5rem auto;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5% auto 0 auto;
     z-index: 11;
     position: sticky;
     top: 0;
@@ -34,8 +37,8 @@ header h1 {
     text-decoration: none;
 }
 .carruseles {
-    margin: auto 0;
-    height: 95%;
+    margin: 0;
+    height: 80%;
     width: 100vw;
 }
 .carrusel-item {
